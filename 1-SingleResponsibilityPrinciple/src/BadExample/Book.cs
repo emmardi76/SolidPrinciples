@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace srp.badexample
+namespace SingleResponsibilityPrinciple.src.BadExample
 {
     public class Book
     {

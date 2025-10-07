@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace srp.refactored
+namespace SingleResponsibilityPrinciple.src.Refactored
 {
     public class BookFilePersistence : BookPersistence
     {

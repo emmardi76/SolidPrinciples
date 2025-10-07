@@ -1,4 +1,4 @@
-namespace srp.badexample
+namespace SingleResponsibilityPrinciple.src.BadExample
 {
     public class Page
     {

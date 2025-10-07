@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace srp.refactored
+namespace SingleResponsibilityPrinciple.src.Refactored
 {
     public class Book
     {

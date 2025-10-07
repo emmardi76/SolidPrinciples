@@ -1,6 +1,6 @@
 using System;
 
-namespace srp.refactored
+namespace SingleResponsibilityPrinciple.src.Refactored
 {
     public class BookPersistenceException : Exception
     {

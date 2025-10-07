@@ -1,4 +1,4 @@
-namespace srp.refactored
+namespace SingleResponsibilityPrinciple.src.Refactored
 {
     public interface BookPersistence
     {
