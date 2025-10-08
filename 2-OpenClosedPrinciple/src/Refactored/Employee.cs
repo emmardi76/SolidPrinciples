@@ -1,14 +1,13 @@
-namespace OpenClosedPrinciple.src.Refactored
-{
-    public class Employee
-    {
-        public string FullName { get; }
-        public int Salary { get; }
+namespace OpenClosedPrinciple.src.Refactored;
 
-        public Employee(string fullName, int salary)
-        {
-            FullName = fullName;
-            Salary = salary;
-        }
+public class Employee
+{
+    public string FullName { get; }
+    public int Salary { get; }
+
+    public Employee(string fullName, int salary)
+    {
+        FullName = fullName;
+        Salary = salary;
     }
 }

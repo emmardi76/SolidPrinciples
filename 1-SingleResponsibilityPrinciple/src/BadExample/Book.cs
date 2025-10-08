@@ -2,68 +2,67 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace SingleResponsibilityPrinciple.src.BadExample
+namespace SingleResponsibilityPrinciple.src.BadExample;
+
+public class Book
 {
-    public class Book
+    public static readonly string BOOK_DIRECTORY_PATH = "/tmp";
+
+    private string title;
+    private string author;
+    private List<Page> pages;
+    private Page currentPage;
+
+    public Book(string title, string author, List<Page> pages)
     {
-        public static readonly string BOOK_DIRECTORY_PATH = "/tmp";
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.currentPage = this.pages[0];
+    }
 
-        private string title;
-        private string author;
-        private List<Page> pages;
-        private Page currentPage;
+    public string GetTitle()
+    {
+        return title;
+    }
 
-        public Book(string title, string author, List<Page> pages)
+    public string GetAuthor()
+    {
+        return author;
+    }
+
+    public Page GetCurrentPage()
+    {
+        return currentPage;
+    }
+
+    public void TurnPage()
+    {
+        int nextPageIndex = currentPage.GetNumber();
+        if (nextPageIndex < pages.Count)
         {
-            this.title = title;
-            this.author = author;
-            this.pages = pages;
-            this.currentPage = this.pages[0];
+            currentPage = pages[nextPageIndex];
         }
+    }
 
-        public string GetTitle()
+    public void TurnPageBack()
+    {
+        int previousPageIndex = currentPage.GetNumber() - 2;
+        if (previousPageIndex >= 0)
         {
-            return title;
+            currentPage = pages[previousPageIndex];
         }
+    }
 
-        public string GetAuthor()
+    public void Save()
+    {
+        string bookFilePath = Path.Combine(BOOK_DIRECTORY_PATH, $"{this.title}_{DateTimeOffset.Now.ToUnixTimeMilliseconds()}");
+        using (StreamWriter writer = new StreamWriter(bookFilePath))
         {
-            return author;
-        }
-
-        public Page GetCurrentPage()
-        {
-            return currentPage;
-        }
-
-        public void TurnPage()
-        {
-            int nextPageIndex = currentPage.GetNumber();
-            if (nextPageIndex < pages.Count)
+            foreach (Page page in pages)
             {
-                currentPage = pages[nextPageIndex];
-            }
-        }
-
-        public void TurnPageBack()
-        {
-            int previousPageIndex = currentPage.GetNumber() - 2;
-            if (previousPageIndex >= 0)
-            {
-                currentPage = pages[previousPageIndex];
-            }
-        }
-
-        public void Save()
-        {
-            string bookFilePath = Path.Combine(BOOK_DIRECTORY_PATH, $"{this.title}_{DateTimeOffset.Now.ToUnixTimeMilliseconds()}");
-            using (StreamWriter writer = new StreamWriter(bookFilePath))
-            {
-                foreach (Page page in pages)
-                {
-                    writer.WriteLine($"---- Page {page.GetNumber()} ----");
-                    writer.WriteLine(page.GetContent());
-                }
+                writer.WriteLine($"---- Page {page.GetNumber()} ----");
+                writer.WriteLine(page.GetContent());
             }
         }
     }

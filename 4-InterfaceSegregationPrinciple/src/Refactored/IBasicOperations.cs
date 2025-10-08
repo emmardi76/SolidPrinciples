@@ -1,11 +1,10 @@
-namespace InterfaceSegregationPrinciple.src.Refactored
+namespace InterfaceSegregationPrinciple.src.Refactored;
+
+// A single interface with multiple methods
+public interface IBasicOperations
 {
-    // A single interface with multiple methods
-    public interface IBasicOperations
-    {
-        public Double Add(double a, double b);
-        public Double Subtract(double a, double b);
-        public Double Multiply(double a, double b);
-        public Double Divide(double a, double b);       
-    }   
+    public double Add(double a, double b);
+    public double Subtract(double a, double b);
+    public double Multiply(double a, double b);
+    public double Divide(double a, double b);
 }

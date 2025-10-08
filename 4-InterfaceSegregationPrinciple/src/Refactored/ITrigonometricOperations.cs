@@ -1,8 +1,7 @@
-namespace InterfaceSegregationPrinciple.src.Refactored
+namespace InterfaceSegregationPrinciple.src.Refactored;
+
+public interface ITrigonometricOperations
 {
-    public interface ITrigonometricOperations
-    {
-        public Double Sine(double angle);
-        public Double Cosine(double angle);
-    }
+    public double Sine(double angle);
+    public double Cosine(double angle);
 }

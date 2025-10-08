@@ -1,24 +1,23 @@
-namespace SingleResponsibilityPrinciple.src.BadExample
+namespace SingleResponsibilityPrinciple.src.BadExample;
+
+public class Page
 {
-    public class Page
+    private int number;
+    private string content;
+
+    public Page(int number, string content)
     {
-        private int number;
-        private string content;
+        this.number = number;
+        this.content = content;
+    }
 
-        public Page(int number, string content)
-        {
-            this.number = number;
-            this.content = content;
-        }
+    public int GetNumber()
+    {
+        return number;
+    }
 
-        public int GetNumber()
-        {
-            return number;
-        }
-
-        public string GetContent()
-        {
-            return content;
-        }
+    public string GetContent()
+    {
+        return content;
     }
 }

@@ -1,24 +1,23 @@
-namespace OpenClosedPrinciple.src.BadExample
+namespace OpenClosedPrinciple.src.BadExample;
+
+public class Programmer
 {
-    public class Programmer
+    private string fullName;
+    private int salary;
+
+    public Programmer(string fullName, int salary)
     {
-        private string fullName;
-        private int salary;
+        this.fullName = fullName;
+        this.salary = salary;
+    }
 
-        public Programmer(string fullName, int salary)
-        {
-            this.fullName = fullName;
-            this.salary = salary;
-        }
+    public string GetFullName()
+    {
+        return fullName;
+    }
 
-        public string GetFullName()
-        {
-            return fullName;
-        }
-
-        public int GetSalary()
-        {
-            return salary;
-        }
+    public int GetSalary()
+    {
+        return salary;
     }
 }

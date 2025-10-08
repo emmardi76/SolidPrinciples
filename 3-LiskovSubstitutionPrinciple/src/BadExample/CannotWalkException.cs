@@ -1,9 +1,8 @@
-namespace LiskovSubstitutionPrinciple.src.BadExample
+namespace LiskovSubstitutionPrinciple.src.BadExample;
+
+public class CannotWalkException : System.Exception
 {
-    public class CannotWalkException : System.Exception
+    public CannotWalkException() : base("This animal cannot walk.")
     {
-        public CannotWalkException() : base("This animal cannot walk.")
-        {
-        }
     }
 }

@@ -1,13 +1,12 @@
-namespace InterfaceSegregationPrinciple.src.BadExample
+namespace InterfaceSegregationPrinciple.src.BadExample;
+
+// A single interface with multiple methods
+public interface IOperations
 {
-    // A single interface with multiple methods
-    public interface IOperations
-    {
-        public Double Add(double a, double b);
-        public Double Subtract(double a, double b);
-        public Double Multiply(double a, double b);
-        public Double Divide(double a, double b);
-        public Double Sine(double angle);
-        public Double Cosine(double angle);
-    }   
-}
+    public double Add(double a, double b);
+    public double Subtract(double a, double b);
+    public double Multiply(double a, double b);
+    public double Divide(double a, double b);
+    public double Sine(double angle);
+    public double Cosine(double angle);
+}   

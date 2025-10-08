@@ -2,35 +2,34 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace SingleResponsibilityPrinciple.src.Refactored
+namespace SingleResponsibilityPrinciple.src.Refactored;
+
+public class BookFilePersistence : IBookPersistence
 {
-    public class BookFilePersistence : IBookPersistence
+    public static readonly string BOOK_DIRECTORY_PATH = "/tmp";
+
+    public void Save(Book book)
     {
-        public static readonly string BOOK_DIRECTORY_PATH = "/tmp";
+        string bookFilePath = Path.Combine(
+            BOOK_DIRECTORY_PATH,
+            $"{book.GetTitle()}_{DateTimeOffset.Now.ToUnixTimeMilliseconds()}"
+        );
+        List<Page> bookPages = book.GetPages();
 
-        public void Save(Book book)
+        try
         {
-            string bookFilePath = Path.Combine(
-                BOOK_DIRECTORY_PATH,
-                $"{book.GetTitle()}_{DateTimeOffset.Now.ToUnixTimeMilliseconds()}"
-            );
-            List<Page> bookPages = book.GetPages();
-
-            try
+            using (StreamWriter writer = new StreamWriter(bookFilePath))
             {
-                using (StreamWriter writer = new StreamWriter(bookFilePath))
+                foreach (Page page in bookPages)
                 {
-                    foreach (Page page in bookPages)
-                    {
-                        writer.WriteLine($"---- Page {page.GetNumber()} ----");
-                        writer.WriteLine(page.GetContent());
-                    }
+                    writer.WriteLine($"---- Page {page.GetNumber()} ----");
+                    writer.WriteLine(page.GetContent());
                 }
             }
-            catch (IOException)
-            {
-                throw new BookPersistenceException();
-            }
+        }
+        catch (IOException)
+        {
+            throw new BookPersistenceException();
         }
     }
 }

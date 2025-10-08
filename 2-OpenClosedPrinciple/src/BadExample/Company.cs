@@ -1,24 +1,23 @@
 using System.Collections.Generic;
 
-namespace OpenClosedPrinciple.src.BadExample
+namespace OpenClosedPrinciple.src.BadExample;
+
+public class Company
 {
-    public class Company
+    private ProgrammerMemoryPersintence persistence;
+
+    public Company()
     {
-        private ProgrammerMemoryPersintence persistence;
+        persistence = new ProgrammerMemoryPersintence();
+    }
 
-        public Company()
-        {
-            persistence = new ProgrammerMemoryPersintence();
-        }
+    public List<Programmer> GetProgrammers()
+    {
+        return persistence.FindAll();
+    }
 
-        public List<Programmer> GetProgrammers()
-        {
-            return persistence.FindAll();
-        }
-
-        public void AddProgrammer(string fullName, int salary)
-        {
-            persistence.Save(new Programmer(fullName, salary));
-        }
+    public void AddProgrammer(string fullName, int salary)
+    {
+        persistence.Save(new Programmer(fullName, salary));
     }
 }

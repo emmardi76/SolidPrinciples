@@ -1,10 +1,9 @@
-namespace LiskovSubstitutionPrinciple.src.Refactored
+namespace LiskovSubstitutionPrinciple.src.Refactored;
+
+public class Dolphin: Mammal
 {
-    public class Dolphin: Mammal
-    {
-       public override void Move()
-       {
-           System.Console.WriteLine("Swimming");
-       }
-    }
+   public override void Move()
+   {
+       System.Console.WriteLine("Swimming");
+   }
 }

@@ -1,24 +1,23 @@
 using System.Collections.Generic;
 
-namespace OpenClosedPrinciple.src.BadExample
+namespace OpenClosedPrinciple.src.BadExample;
+
+public class ProgrammerMemoryPersintence
 {
-    public class ProgrammerMemoryPersintence
+    private List<Programmer> programmers;
+
+    public ProgrammerMemoryPersintence()
     {
-        private List<Programmer> programmers;
+        programmers = new List<Programmer>();
+    }
 
-        public ProgrammerMemoryPersintence()
-        {
-            programmers = new List<Programmer>();
-        }
+    public List<Programmer> FindAll()
+    {
+        return programmers;
+    }
 
-        public List<Programmer> FindAll()
-        {
-            return programmers;
-        }
-
-        public void Save(Programmer programmer)
-        {
-            programmers.Add(programmer);
-        }
+    public void Save(Programmer programmer)
+    {
+        programmers.Add(programmer);
     }
 }

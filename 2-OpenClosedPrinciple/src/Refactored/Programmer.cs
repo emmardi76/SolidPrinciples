@@ -1,10 +1,9 @@
-namespace OpenClosedPrinciple.src.Refactored
+namespace OpenClosedPrinciple.src.Refactored;
+
+public class Programmer : Employee
 {
-    public class Programmer : Employee
+    public Programmer(string fullName, int salary)
+        : base(fullName, salary)
     {
-        public Programmer(string fullName, int salary)
-            : base(fullName, salary)
-        {
-        }
     }
 }

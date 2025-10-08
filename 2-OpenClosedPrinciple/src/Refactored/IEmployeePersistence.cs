@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 
-namespace OpenClosedPrinciple.src.Refactored
+namespace OpenClosedPrinciple.src.Refactored;
+
+public interface IEmployeePersistence
 {
-    public interface IEmployeePersistence
-    {
-        List<Employee> FindAll();
-        void Save(Employee employee);
-    }
+    List<Employee> FindAll();
+    void Save(Employee employee);
 }

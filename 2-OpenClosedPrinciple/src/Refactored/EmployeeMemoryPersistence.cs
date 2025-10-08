@@ -1,24 +1,23 @@
 using System.Collections.Generic;
 
-namespace OpenClosedPrinciple.src.Refactored
+namespace OpenClosedPrinciple.src.Refactored;
+
+public class EmployeeMemoryPersistence : IEmployeePersistence
 {
-    public class EmployeeMemoryPersistence : IEmployeePersistence
+    private List<Employee> _employees;
+
+    public EmployeeMemoryPersistence()
     {
-        private List<Employee> _employees;
+        _employees = new List<Employee>();
+    }
 
-        public EmployeeMemoryPersistence()
-        {
-            _employees = new List<Employee>();
-        }
+    public List<Employee> FindAll()
+    {
+        return _employees;
+    }
 
-        public List<Employee> FindAll()
-        {
-            return _employees;
-        }
-
-        public void Save(Employee employee)
-        {
-            _employees.Add(employee);
-        }
+    public void Save(Employee employee)
+    {
+        _employees.Add(employee);
     }
 }

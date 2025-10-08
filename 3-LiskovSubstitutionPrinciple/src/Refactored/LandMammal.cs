@@ -1,10 +1,9 @@
-namespace LiskovSubstitutionPrinciple.src.Refactored
+namespace LiskovSubstitutionPrinciple.src.Refactored;
+
+public class LandMammal : Mammal
 {
-   public class LandMammal : Mammal
+   public override void Move()
    {
-       public override void Move()
-       {
-           System.Console.WriteLine("Walking on land");
-       }
+       System.Console.WriteLine("Walking on land");
    }
 }
