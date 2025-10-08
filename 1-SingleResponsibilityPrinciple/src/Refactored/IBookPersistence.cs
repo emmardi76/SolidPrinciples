@@ -1,6 +1,6 @@
 namespace SingleResponsibilityPrinciple.src.Refactored
 {
-    public interface BookPersistence
+    public interface IBookPersistence
     {
         void Save(Book book);
     }

@@ -4,7 +4,7 @@ using System.IO;
 
 namespace SingleResponsibilityPrinciple.src.Refactored
 {
-    public class BookFilePersistence : BookPersistence
+    public class BookFilePersistence : IBookPersistence
     {
         public static readonly string BOOK_DIRECTORY_PATH = "/tmp";
 
